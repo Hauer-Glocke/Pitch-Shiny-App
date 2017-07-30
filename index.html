@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Price Development of the BMW AG</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Share Price Development of the BMW AG">
+  <meta name="author" content="Ramon Roales-Welsch">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Share Price Development of the BMW AG</h1>
+    <h2>Third Assignment of the Developing Data Products Course (30th of July, 2017)</h2>
+    <p>Ramon Roales-Welsch<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What does my application do?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Edit YAML front matter</li>
+<li>Write using R Markdown</li>
+<li>Use an empty line followed by three dashes to separate slides!</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Show the BMW dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">library(readr)
+bmw &lt;- read_csv(url(&quot;https://raw.githubusercontent.com/Hauer-Glocke/third_assignment_data_products/master/my_first_app/BMW.DE.csv&quot;))
+
+head(bmw, 5)
+</code></pre>
+
+<pre><code>## # A tibble: 5 x 7
+##         Date      Open      High       Low     Close `Adj Close`  Volume
+##       &lt;date&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt;
+## 1 1996-11-08 18.209999 18.209999 18.171000 18.171000    9.137737  767000
+## 2 1996-11-11 18.190001 18.200001 18.082001 18.122000    9.113095  260000
+## 3 1996-11-12 18.160999 18.327999 18.091999 18.259001    9.181991 1066000
+## 4 1996-11-13 18.344000 18.344000 18.190001 18.230000    9.167404  793000
+## 5 1996-11-14 18.205000 18.289000 18.132000 18.289000    9.197076  351000
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Adjustments of the dataset</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">bmw &lt;- bmw[c(1,5)]
+bmw$Close &lt;- as.numeric(bmw$Close)
+</code></pre>
+
+<pre><code>## Warning: NAs introduced by coercion
+</code></pre>
+
+<pre><code class="r">bmw &lt;- bmw[!is.na(bmw$Close),]
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Plot Function</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">#minDate &lt;- input$Date[1]
+#maxDate &lt;- input$Date[2]
+#period &lt;- bmw$Date[minDate:maxDate]
+#temp &lt;- bmw[bmw$Date %in% period,]
+#plot(x = temp$Date, 
+#     y = temp$Close,
+#     type = &quot;l&quot;,
+#     xlab = &quot;Date&quot;,
+#     ylab = &quot;Price BMW Share&quot;,
+#     main = &quot;BMW Share Price Development&quot;)
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What does my application do?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Show the BMW dataset'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Adjustments of the dataset'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Plot Function'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
